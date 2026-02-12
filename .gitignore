@@ -1,0 +1,34 @@
+# Runtime logs and diagnostics
+log/
+logfile/
+*.log
+FoxLog.txt
+memorymonitor.log
+
+# Build and binary artifacts
+*.exe
+*.dll
+*.pdb
+*.o
+
+# Secrets and local certificates
+*.key
+*.crt
+*.pem
+
+# Temp and backup files
+tmp.txt
+*.tmp
+*.temp
+*.bak
+*~
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates

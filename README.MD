@@ -42,6 +42,7 @@ Agradecimentos especiais:
   * **V3ct0r1024**
   * **deguix**
   * **Mothanna**
+  * **Poezies**
   * e todos os demais membros do fórum e comunidade
 
 Referência adicional (projeto público relacionado):
