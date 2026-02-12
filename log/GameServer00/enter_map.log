@@ -1,0 +1,31 @@
+[02-12 14:18:35]start entry map cha_id = 6 enter--------------------------
+[02-12 14:18:35]cha_id = 6, begin read data from database: 
+[02-12 14:18:35]Loading database succeed，_get_row.
+[02-12 14:18:35]Set the whole data succeed.
+[02-12 14:18:35]Load kitbag data succeed.
+[02-12 14:18:35]Load temp kitbag data succeed.
+[02-12 14:18:35]Load bank data succeed.
+[02-12 14:18:35]Load big map data succeed.
+[02-12 14:18:35]Load the character whole data succeed.
+[02-12 14:18:35]finish enter game scene Cha-DelmonGates+6(Cha-DelmonGates+6)
+[02-12 14:18:35]end up entry map  [Cha-DelmonGates+6]================
+
+[02-12 14:19:52]start leave map--------
+[02-12 14:19:52]Delete Player [Cha-DelmonGates+6]
+[02-12 14:19:52]cha_id = 6, begin goout
+[02-12 14:19:52]Cha-DelmonGates+6 start configure save data.
+[02-12 14:19:52]save the main character whole data succeed!
+[02-12 14:19:52]finish kitbag save.
+[02-12 14:19:52]finish save the temp kitbag.
+[02-12 14:19:52]finish the whole bank[0->0]save
+[02-12 14:19:52]save the whole boat data succeed
+[02-12 14:19:52]save character whole data succeed.
+[02-12 14:19:52]cha_id = 6, goout
+[02-12 14:19:52]end and leave the map========
+
+[02-12 14:21:15]Begin SaveAllPlayer==============================================================
+[02-12 14:21:15]one-off carry out every big map save SQL,totalize[0] piece!
+[02-12 14:21:15]End SaveAllPlayer################################################################
+[02-12 14:21:27]Begin SaveAllPlayer==============================================================
+[02-12 14:21:27]one-off carry out every big map save SQL,totalize[0] piece!
+[02-12 14:21:27]End SaveAllPlayer################################################################

@@ -1,0 +1,2 @@
+//1	Banker - Monica	1	16	0	4000,2000	4000,2000	180	guildhouse	1	0	r_talk13	0
+1	Snowy Guild Builder	1	244	0	7400,2700	7400,2700	180	guildhouse	1	0	Guild_House	0

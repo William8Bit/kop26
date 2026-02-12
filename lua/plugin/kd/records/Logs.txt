@@ -1,0 +1,175 @@
+return {
+-- Table: {1}
+{
+	["eastgoaf"]={2},
+	["jialebi"]={3},
+	["garner2"]={4},
+	["overall"]={5},
+},
+-- Table: {2}
+{
+},
+-- Table: {3}
+{
+},
+-- Table: {4}
+{
+	["WhiteLine"]={6},
+	["xlarge"]={7},
+	["Champsrs"]={8},
+	["Forsaken"]={9},
+	["ConchMYAss"]={10},
+	["KingNight"]={11},
+	["BISH"]={12},
+	["Dealer"]={13},
+	["Flox"]={14},
+	["UNDERLORD"]={15},
+	["Minov"]={16},
+},
+-- Table: {5}
+{
+	["WhiteLine"]={17},
+	["xlarge"]={18},
+	["Champsrs"]={19},
+	["Forsaken"]={20},
+	["ConchMYAss"]={21},
+	["KingNight"]={22},
+	["BISH"]={23},
+	["Dealer"]={24},
+	["Flox"]={25},
+	["UNDERLORD"]={26},
+	["Minov"]={27},
+},
+-- Table: {6}
+{
+	["ratio"]=0,
+	["death"]=7,
+	["kill"]=6,
+},
+-- Table: {7}
+{
+	["ratio"]=0,
+	["death"]=3,
+	["kill"]=6,
+},
+-- Table: {8}
+{
+	["ratio"]=0,
+	["kill"]=3,
+	["death"]=6,
+},
+-- Table: {9}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=3,
+},
+-- Table: {10}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=2,
+},
+-- Table: {11}
+{
+	["ratio"]=0,
+	["kill"]=5,
+	["death"]=2,
+},
+-- Table: {12}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=1,
+},
+-- Table: {13}
+{
+	["ratio"]=0,
+	["death"]=1,
+	["kill"]=4,
+},
+-- Table: {14}
+{
+	["ratio"]=0,
+	["kill"]=6,
+	["death"]=7,
+},
+-- Table: {15}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=1,
+},
+-- Table: {16}
+{
+	["ratio"]=0,
+	["kill"]=8,
+	["death"]=5,
+},
+-- Table: {17}
+{
+	["ratio"]=0,
+	["death"]=7,
+	["kill"]=6,
+},
+-- Table: {18}
+{
+	["ratio"]=0,
+	["death"]=3,
+	["kill"]=6,
+},
+-- Table: {19}
+{
+	["ratio"]=0,
+	["kill"]=3,
+	["death"]=6,
+},
+-- Table: {20}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=3,
+},
+-- Table: {21}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=2,
+},
+-- Table: {22}
+{
+	["ratio"]=0,
+	["kill"]=5,
+	["death"]=2,
+},
+-- Table: {23}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=1,
+},
+-- Table: {24}
+{
+	["ratio"]=0,
+	["death"]=1,
+	["kill"]=4,
+},
+-- Table: {25}
+{
+	["ratio"]=0,
+	["kill"]=6,
+	["death"]=7,
+},
+-- Table: {26}
+{
+	["ratio"]=0,
+	["kill"]=0,
+	["death"]=1,
+},
+-- Table: {27}
+{
+	["ratio"]=0,
+	["kill"]=8,
+	["death"]=5,
+},
+}

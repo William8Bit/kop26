@@ -1,0 +1,21 @@
+[02-12 12:07:55]Log stream open success.
+[02-12 12:07:55]begin connect database
+[02-12 12:07:55]begin init AccountServer connect
+[02-12 12:07:55]AccountServer:127.0.0.1,1978come ! Socket num:1
+[02-12 12:07:55]begin read GroupServer.cfg
+[02-12 12:07:55]begin load ChaNameFilter.txt
+[02-12 12:07:55]begin listen port:1975
+[02-12 12:07:55]open listen port:1975success, init is ok
+[02-12 12:07:57]Log stream open success.
+[02-12 12:07:57]
+[02-12 12:07:57]GateServer:127.0.0.1,17800come ! Socket num:2
+[02-12 12:07:57]connect GroupServer: 127.0.0.1,Socket num:1
+[02-12 12:07:57]
+[02-12 12:25:44]AccountServer:127.0.0.1,1978go ! Socket num:1reason=(-3)The connection was closed by the other party.
+[02-12 12:26:18]Log stream open success.
+[02-12 12:26:18]begin connect database
+[02-12 12:26:18]begin init AccountServer connect
+[02-12 12:26:26]Log stream open success.
+[02-12 12:26:26]begin connect database
+[02-12 12:26:26]begin init AccountServer connect
+[02-12 12:26:58]GateServer:127.0.0.1,17800go ! Socket num:0reason=(10054)Remote host forcibly closed an existing connection.

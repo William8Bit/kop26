@@ -1,0 +1,5 @@
+//1	EGpko	1	1117	0	39000,61300	39000,61300	180	EG Town	1	0	eg_level	0
+1	Teleporter	1	11	7	41200,65600	41200,65600	180	Dream Island	1	0	gold_04	0
+2	Teleporter	1	11	7	65300,28100	65300,28100	180	Dream Island	1	0	gold_04	0
+//3	Muta	1	11	7	14100,10000	14100,10000	180	Dream Island	1	0	muuut_1 	0
+

@@ -1,0 +1,6 @@
+
+function InitPkMapEntity()
+
+end
+
+InitPkMapEntity()

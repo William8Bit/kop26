@@ -1,0 +1,5 @@
+[01-10 21:01:41]Log stream open success.
+[01-10 21:02:20](127.0.0.1):[admin]login success, 	 nline/total:1/0
+[01-10 21:02:31](127.0.0.1):[admin]select char[Spidpex]begin paly...，	 online/total:1/0
+[01-10 21:02:31](127.0.0.1):[admin] char [Spidpex]entry map server begin play...，	 online/total:1/1
+[01-10 21:03:16](127.0.0.1):[admin]logout,	 online/total:0/0

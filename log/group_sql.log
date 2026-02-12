@@ -1,0 +1,447 @@
+[02-12 11:51:20][02-12 11:51:20]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:51:38]connect database failed, error[Unable to connect database
+]
+[02-12 11:51:44][02-12 11:51:44]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:52:01]connect database failed, error[Unable to connect database
+]
+[02-12 11:52:06][02-12 11:52:06]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:52:08][02-12 11:52:08]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:52:26]connect database failed, error[Unable to connect database
+]
+[02-12 11:56:24][02-12 11:56:24]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:56:42]connect database failed, error[Unable to connect database
+]
+[02-12 11:56:46][02-12 11:56:46]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:57:04]connect database failed, error[Unable to connect database
+]
+[02-12 11:57:08][02-12 11:57:08]begin connect database, ip = [127.0.0.1], db = [GameDB]
+[02-12 11:57:26]connect database failed, error[Unable to connect database
+]
+[02-12 11:59:29][02-12 11:59:29]begin connect database, ip = [SUPORTE\SQLEXPRESS], db = [GameDB]
+[02-12 11:59:30]connect database ok, begin init datatable
+[02-12 11:59:30]begin check table [account] 
+[02-12 11:59:30]Table [account], begin execute SQL [drop trigger [TR_D_Character_Friends]]
+[02-12 11:59:30]execute SQL success![02-12 11:59:30]Table [account], begin execute SQL [drop trigger [TR_I_Character]]
+[02-12 11:59:30]execute SQL success![02-12 11:59:30]Table [account], begin execute SQL [CREATE TRIGGER TR_D_Character_Friends ON character 
+				FOR DELETE 
+				AS
+				BEGIN
+					declare @@stat tinyint
+					declare @@gid  int
+					select @@stat =guild_stat,@@gid =guild_id from deleted
+					DELETE friends where friends.cha_id1 IN(select cha_id from deleted)
+					if(@@gid >0)
+					BEGIN
+						update guild set try_total =try_total -(case when @@stat>0 then 1 else 0 end),
+								member_total =member_total -(case when @@stat >0 then 0 else 1 end)
+							where guild_id >0 and guild_id =@@gid
+					END
+				END
+		]
+[02-12 11:59:30]execute SQL success![02-12 11:59:30]Table [account], begin execute SQL [CREATE TRIGGER TR_I_Character ON character
+				FOR INSERT
+				AS
+				BEGIN
+					declare @l_icon smallint
+					select @l_icon =convert(smallint,SUBSTRING(inserted.look,5,1)) from inserted
+					update character set icon =@l_icon where cha_id in (select cha_id from inserted)
+				END
+		]
+[02-12 11:59:30]execute SQL success![02-12 11:59:30]begin check table [guild]
+[02-12 11:59:30]Table [character], begin execute SQL [update character set mem_addr =0 where mem_addr != 0]
+[02-12 11:59:30]execute SQL, no result 
+[02-12 11:59:30]begin check table [param]
+[02-12 11:59:30]init database success
+[02-12 11:59:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 11:59:39]execute SQL success![02-12 11:59:49]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 11:59:49]execute SQL success![02-12 11:59:59]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 11:59:59]execute SQL success![02-12 12:00:09]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:00:09]execute SQL success![02-12 12:00:19]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:00:19]execute SQL success![02-12 12:00:29]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:00:29]execute SQL success![02-12 12:00:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:00:39]execute SQL success![02-12 12:00:49]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:00:49]execute SQL success![02-12 12:00:59]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:00:59]execute SQL success![02-12 12:01:09]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:01:09]execute SQL success![02-12 12:01:19]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:01:19]execute SQL success![02-12 12:01:29]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:01:29]execute SQL success![02-12 12:01:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:01:39]execute SQL success![02-12 12:01:49]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:01:49]execute SQL success![02-12 12:01:59]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:01:59]execute SQL success![02-12 12:02:09]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:02:09]execute SQL success![02-12 12:02:19]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:02:19]execute SQL success![02-12 12:02:29]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:02:29]execute SQL success![02-12 12:02:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:02:39]execute SQL success![02-12 12:02:49]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:02:49]execute SQL success![02-12 12:02:59]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:02:59]execute SQL success![02-12 12:03:09]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:03:09]execute SQL success![02-12 12:03:19]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:03:19]execute SQL success![02-12 12:03:29]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:03:29]execute SQL success![02-12 12:03:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:03:39]execute SQL success![02-12 12:03:49]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:03:49]execute SQL success![02-12 12:03:59]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:03:59]execute SQL success![02-12 12:04:09]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:04:09]execute SQL success![02-12 12:04:19]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:04:19]execute SQL success![02-12 12:04:29]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:04:29]execute SQL success![02-12 12:04:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:04:39]execute SQL success![02-12 12:04:49]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:04:49]execute SQL success![02-12 12:04:59]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:04:59]execute SQL success![02-12 12:05:09]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:05:09]execute SQL success![02-12 12:05:19]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:05:19]execute SQL success![02-12 12:05:24][02-12 12:05:24]begin connect database, ip = [SUPORTE\SQLEXPRESS], db = [GameDB]
+[02-12 12:05:25]connect database ok, begin init datatable
+[02-12 12:05:25]begin check table [account] 
+[02-12 12:05:25]Table [account], begin execute SQL [drop trigger [TR_D_Character_Friends]]
+[02-12 12:05:25]execute SQL success![02-12 12:05:25]Table [account], begin execute SQL [drop trigger [TR_I_Character]]
+[02-12 12:05:25]execute SQL success![02-12 12:05:25]Table [account], begin execute SQL [CREATE TRIGGER TR_D_Character_Friends ON character 
+				FOR DELETE 
+				AS
+				BEGIN
+					declare @@stat tinyint
+					declare @@gid  int
+					select @@stat =guild_stat,@@gid =guild_id from deleted
+					DELETE friends where friends.cha_id1 IN(select cha_id from deleted)
+					if(@@gid >0)
+					BEGIN
+						update guild set try_total =try_total -(case when @@stat>0 then 1 else 0 end),
+								member_total =member_total -(case when @@stat >0 then 0 else 1 end)
+							where guild_id >0 and guild_id =@@gid
+					END
+				END
+		]
+[02-12 12:05:25]execute SQL success![02-12 12:05:25]Table [account], begin execute SQL [CREATE TRIGGER TR_I_Character ON character
+				FOR INSERT
+				AS
+				BEGIN
+					declare @l_icon smallint
+					select @l_icon =convert(smallint,SUBSTRING(inserted.look,5,1)) from inserted
+					update character set icon =@l_icon where cha_id in (select cha_id from inserted)
+				END
+		]
+[02-12 12:05:25]execute SQL success![02-12 12:05:25]begin check table [guild]
+[02-12 12:05:25]Table [character], begin execute SQL [update character set mem_addr =0 where mem_addr != 0]
+[02-12 12:05:25]execute SQL, no result 
+[02-12 12:05:25]begin check table [param]
+[02-12 12:05:25]init database success
+[02-12 12:05:29]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:05:29]execute SQL success![02-12 12:05:39]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:05:39]execute SQL success![02-12 12:07:55][02-12 12:07:55]begin connect database, ip = [SUPORTE\SQLEXPRESS], db = [GameDB]
+[02-12 12:07:55]connect database ok, begin init datatable
+[02-12 12:07:55]begin check table [account] 
+[02-12 12:07:55]Table [account], begin execute SQL [drop trigger [TR_D_Character_Friends]]
+[02-12 12:07:55]execute SQL success![02-12 12:07:55]Table [account], begin execute SQL [drop trigger [TR_I_Character]]
+[02-12 12:07:55]execute SQL success![02-12 12:07:55]Table [account], begin execute SQL [CREATE TRIGGER TR_D_Character_Friends ON character 
+				FOR DELETE 
+				AS
+				BEGIN
+					declare @@stat tinyint
+					declare @@gid  int
+					select @@stat =guild_stat,@@gid =guild_id from deleted
+					DELETE friends where friends.cha_id1 IN(select cha_id from deleted)
+					if(@@gid >0)
+					BEGIN
+						update guild set try_total =try_total -(case when @@stat>0 then 1 else 0 end),
+								member_total =member_total -(case when @@stat >0 then 0 else 1 end)
+							where guild_id >0 and guild_id =@@gid
+					END
+				END
+		]
+[02-12 12:07:55]execute SQL success![02-12 12:07:55]Table [account], begin execute SQL [CREATE TRIGGER TR_I_Character ON character
+				FOR INSERT
+				AS
+				BEGIN
+					declare @l_icon smallint
+					select @l_icon =convert(smallint,SUBSTRING(inserted.look,5,1)) from inserted
+					update character set icon =@l_icon where cha_id in (select cha_id from inserted)
+				END
+		]
+[02-12 12:07:55]execute SQL success![02-12 12:07:55]begin check table [guild]
+[02-12 12:07:55]Table [character], begin execute SQL [update character set mem_addr =0 where mem_addr != 0]
+[02-12 12:07:55]execute SQL, no result 
+[02-12 12:07:55]begin check table [param]
+[02-12 12:07:55]init database success
+[02-12 12:08:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:08:05]execute SQL success![02-12 12:08:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:08:15]execute SQL success![02-12 12:08:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:08:25]execute SQL success![02-12 12:08:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:08:35]execute SQL success![02-12 12:08:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:08:45]execute SQL success![02-12 12:08:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:08:55]execute SQL success![02-12 12:09:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:09:05]execute SQL success![02-12 12:09:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:09:15]execute SQL success![02-12 12:09:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 12:09:25]execute SQL success![02-12 12:09:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 12:09:35]execute SQL success![02-12 12:09:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 12:09:45]execute SQL success![02-12 12:09:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 12:09:55]execute SQL success![02-12 12:10:00]Table [character], begin execute SQL [update character set mem_addr =23469672 where cha_id =1]
+[02-12 12:10:00]execute SQL success![02-12 12:10:00]Table [character], begin execute SQL [update character set estop = getdate() where cha_id =1]
+[02-12 12:10:00]execute SQL success![02-12 12:10:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:10:05]execute SQL success![02-12 12:10:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:10:15]execute SQL success![02-12 12:10:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:10:25]execute SQL success![02-12 12:10:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:10:35]execute SQL success![02-12 12:10:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:10:45]execute SQL success![02-12 12:10:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:10:55]execute SQL success![02-12 12:11:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:11:05]execute SQL success![02-12 12:11:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:11:15]execute SQL success![02-12 12:11:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:11:25]execute SQL success![02-12 12:11:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:11:35]execute SQL success![02-12 12:11:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:11:45]execute SQL success![02-12 12:11:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:11:55]execute SQL success![02-12 12:12:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:12:05]execute SQL success![02-12 12:12:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:12:15]execute SQL success![02-12 12:12:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:12:25]execute SQL success![02-12 12:12:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:12:35]execute SQL success![02-12 12:12:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:12:45]execute SQL success![02-12 12:12:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:12:55]execute SQL success![02-12 12:13:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:13:05]execute SQL success![02-12 12:13:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:13:15]execute SQL success![02-12 12:13:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:13:25]execute SQL success![02-12 12:13:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:13:35]execute SQL success![02-12 12:13:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:13:45]execute SQL success![02-12 12:13:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:13:55]execute SQL success![02-12 12:14:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:14:05]execute SQL success![02-12 12:14:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:14:15]execute SQL success![02-12 12:14:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:14:25]execute SQL success![02-12 12:14:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:14:35]execute SQL success![02-12 12:14:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:14:45]execute SQL success![02-12 12:14:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:14:55]execute SQL success![02-12 12:15:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:15:05]execute SQL success![02-12 12:15:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:15:15]execute SQL success![02-12 12:15:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:15:25]execute SQL success![02-12 12:15:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:15:35]execute SQL success![02-12 12:15:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:15:45]execute SQL success![02-12 12:15:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:15:55]execute SQL success![02-12 12:16:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:16:05]execute SQL success![02-12 12:16:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:16:15]execute SQL success![02-12 12:16:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:16:25]execute SQL success![02-12 12:16:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:16:35]execute SQL success![02-12 12:16:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:16:45]execute SQL success![02-12 12:16:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:16:55]execute SQL success![02-12 12:17:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:17:05]execute SQL success![02-12 12:17:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:17:15]execute SQL success![02-12 12:17:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:17:25]execute SQL success![02-12 12:17:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:17:35]execute SQL success![02-12 12:17:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:17:45]execute SQL success![02-12 12:17:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:17:55]execute SQL success![02-12 12:18:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:18:05]execute SQL success![02-12 12:18:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:18:15]execute SQL success![02-12 12:18:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:18:25]execute SQL success![02-12 12:18:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:18:35]execute SQL success![02-12 12:18:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:18:45]execute SQL success![02-12 12:18:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:18:55]execute SQL success![02-12 12:19:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:19:05]execute SQL success![02-12 12:19:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:19:15]execute SQL success![02-12 12:19:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:19:25]execute SQL success![02-12 12:19:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:19:35]execute SQL success![02-12 12:19:39]Table [character], begin execute SQL [update character set mem_addr =0 where cha_id =1]
+[02-12 12:19:39]execute SQL success![02-12 12:19:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 12:19:45]execute SQL success![02-12 12:19:45]Table [character], begin execute SQL [update character set mem_addr =23469672 where cha_id =2]
+[02-12 12:19:45]execute SQL success![02-12 12:19:45]Table [character], begin execute SQL [update character set estop = getdate() where cha_id =2]
+[02-12 12:19:45]execute SQL success![02-12 12:19:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:19:55]execute SQL success![02-12 12:20:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:20:05]execute SQL success![02-12 12:20:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:20:15]execute SQL success![02-12 12:20:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:20:25]execute SQL success![02-12 12:20:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:20:35]execute SQL success![02-12 12:20:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:20:45]execute SQL success![02-12 12:20:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:20:55]execute SQL success![02-12 12:21:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:21:05]execute SQL success![02-12 12:21:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:21:15]execute SQL success![02-12 12:21:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:21:25]execute SQL success![02-12 12:21:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:21:35]execute SQL success![02-12 12:21:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:21:45]execute SQL success![02-12 12:21:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:21:55]execute SQL success![02-12 12:22:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:22:05]execute SQL success![02-12 12:22:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:22:15]execute SQL success![02-12 12:22:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:22:25]execute SQL success![02-12 12:22:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:22:35]execute SQL success![02-12 12:22:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:22:45]execute SQL success![02-12 12:22:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:22:55]execute SQL success![02-12 12:23:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:23:05]execute SQL success![02-12 12:23:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:23:15]execute SQL success![02-12 12:23:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:23:25]execute SQL success![02-12 12:23:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:23:35]execute SQL success![02-12 12:23:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:23:45]execute SQL success![02-12 12:23:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:23:55]execute SQL success![02-12 12:24:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:24:05]execute SQL success![02-12 12:24:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:24:15]execute SQL success![02-12 12:24:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:24:25]execute SQL success![02-12 12:24:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:24:35]execute SQL success![02-12 12:24:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:24:45]execute SQL success![02-12 12:24:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:24:55]execute SQL success![02-12 12:25:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:25:05]execute SQL success![02-12 12:25:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:25:15]execute SQL success![02-12 12:25:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 12:25:25]execute SQL success![02-12 12:25:30]Table [account], begin execute SQL [update account set last_ip='127.0.0.1',disc_reason ='',last_leave =getdate() where act_id =1]
+[02-12 12:25:30]execute SQL success![02-12 12:25:30]Table [character], begin execute SQL [update character set mem_addr =0 where cha_id =2]
+[02-12 12:25:30]execute SQL success![02-12 12:25:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:25:35]execute SQL success![02-12 12:25:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:25:45]execute SQL success![02-12 12:25:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:25:55]execute SQL success![02-12 12:26:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:26:05]execute SQL success![02-12 12:26:15]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:26:15]execute SQL success![02-12 12:26:18][02-12 12:26:18]begin connect database, ip = [SUPORTE\SQLEXPRESS], db = [GameDB]
+[02-12 12:26:18]connect database ok, begin init datatable
+[02-12 12:26:18]begin check table [account] 
+[02-12 12:26:18]Table [account], begin execute SQL [drop trigger [TR_D_Character_Friends]]
+[02-12 12:26:18]execute SQL success![02-12 12:26:18]Table [account], begin execute SQL [drop trigger [TR_I_Character]]
+[02-12 12:26:18]execute SQL success![02-12 12:26:18]Table [account], begin execute SQL [CREATE TRIGGER TR_D_Character_Friends ON character 
+				FOR DELETE 
+				AS
+				BEGIN
+					declare @@stat tinyint
+					declare @@gid  int
+					select @@stat =guild_stat,@@gid =guild_id from deleted
+					DELETE friends where friends.cha_id1 IN(select cha_id from deleted)
+					if(@@gid >0)
+					BEGIN
+						update guild set try_total =try_total -(case when @@stat>0 then 1 else 0 end),
+								member_total =member_total -(case when @@stat >0 then 0 else 1 end)
+							where guild_id >0 and guild_id =@@gid
+					END
+				END
+		]
+[02-12 12:26:18]execute SQL success![02-12 12:26:18]Table [account], begin execute SQL [CREATE TRIGGER TR_I_Character ON character
+				FOR INSERT
+				AS
+				BEGIN
+					declare @l_icon smallint
+					select @l_icon =convert(smallint,SUBSTRING(inserted.look,5,1)) from inserted
+					update character set icon =@l_icon where cha_id in (select cha_id from inserted)
+				END
+		]
+[02-12 12:26:18]execute SQL success![02-12 12:26:18]begin check table [guild]
+[02-12 12:26:18]Table [character], begin execute SQL [update character set mem_addr =0 where mem_addr != 0]
+[02-12 12:26:18]execute SQL, no result 
+[02-12 12:26:18]begin check table [param]
+[02-12 12:26:18]init database success
+[02-12 12:26:25]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:26:25]execute SQL success![02-12 12:26:26][02-12 12:26:26]begin connect database, ip = [SUPORTE\SQLEXPRESS], db = [GameDB]
+[02-12 12:26:26]connect database ok, begin init datatable
+[02-12 12:26:26]begin check table [account] 
+[02-12 12:26:26]Table [account], begin execute SQL [drop trigger [TR_D_Character_Friends]]
+[02-12 12:26:26]execute SQL success![02-12 12:26:26]Table [account], begin execute SQL [drop trigger [TR_I_Character]]
+[02-12 12:26:26]execute SQL success![02-12 12:26:26]Table [account], begin execute SQL [CREATE TRIGGER TR_D_Character_Friends ON character 
+				FOR DELETE 
+				AS
+				BEGIN
+					declare @@stat tinyint
+					declare @@gid  int
+					select @@stat =guild_stat,@@gid =guild_id from deleted
+					DELETE friends where friends.cha_id1 IN(select cha_id from deleted)
+					if(@@gid >0)
+					BEGIN
+						update guild set try_total =try_total -(case when @@stat>0 then 1 else 0 end),
+								member_total =member_total -(case when @@stat >0 then 0 else 1 end)
+							where guild_id >0 and guild_id =@@gid
+					END
+				END
+		]
+[02-12 12:26:26]execute SQL success![02-12 12:26:26]Table [account], begin execute SQL [CREATE TRIGGER TR_I_Character ON character
+				FOR INSERT
+				AS
+				BEGIN
+					declare @l_icon smallint
+					select @l_icon =convert(smallint,SUBSTRING(inserted.look,5,1)) from inserted
+					update character set icon =@l_icon where cha_id in (select cha_id from inserted)
+				END
+		]
+[02-12 12:26:26]execute SQL success![02-12 12:26:26]begin check table [guild]
+[02-12 12:26:26]Table [character], begin execute SQL [update character set mem_addr =0 where mem_addr != 0]
+[02-12 12:26:26]execute SQL, no result 
+[02-12 12:26:26]begin check table [param]
+[02-12 12:26:26]init database success
+[02-12 12:26:35]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:26:35]execute SQL success![02-12 12:26:45]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:26:45]execute SQL success![02-12 12:26:55]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:26:55]execute SQL success![02-12 12:27:05]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 12:27:05]execute SQL success![02-12 14:13:38][02-12 14:13:38]begin connect database, ip = [SUPORTE\SQLEXPRESS], db = [GameDB]
+[02-12 14:13:38]connect database ok, begin init datatable
+[02-12 14:13:38]begin check table [account] 
+[02-12 14:13:38]Table [account], begin execute SQL [drop trigger [TR_D_Character_Friends]]
+[02-12 14:13:38]execute SQL success![02-12 14:13:38]Table [account], begin execute SQL [drop trigger [TR_I_Character]]
+[02-12 14:13:38]execute SQL success![02-12 14:13:38]Table [account], begin execute SQL [CREATE TRIGGER TR_D_Character_Friends ON character 
+				FOR DELETE 
+				AS
+				BEGIN
+					declare @@stat tinyint
+					declare @@gid  int
+					select @@stat =guild_stat,@@gid =guild_id from deleted
+					DELETE friends where friends.cha_id1 IN(select cha_id from deleted)
+					if(@@gid >0)
+					BEGIN
+						update guild set try_total =try_total -(case when @@stat>0 then 1 else 0 end),
+								member_total =member_total -(case when @@stat >0 then 0 else 1 end)
+							where guild_id >0 and guild_id =@@gid
+					END
+				END
+		]
+[02-12 14:13:38]execute SQL success![02-12 14:13:38]Table [account], begin execute SQL [CREATE TRIGGER TR_I_Character ON character
+				FOR INSERT
+				AS
+				BEGIN
+					declare @l_icon smallint
+					select @l_icon =convert(smallint,SUBSTRING(inserted.look,5,1)) from inserted
+					update character set icon =@l_icon where cha_id in (select cha_id from inserted)
+				END
+		]
+[02-12 14:13:38]execute SQL success![02-12 14:13:38]begin check table [guild]
+[02-12 14:13:38]Table [character], begin execute SQL [update character set mem_addr =0 where mem_addr != 0]
+[02-12 14:13:38]execute SQL, no result 
+[02-12 14:13:38]begin check table [param]
+[02-12 14:13:38]init database success
+[02-12 14:13:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:13:48]execute SQL success![02-12 14:13:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:13:58]execute SQL success![02-12 14:14:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:14:08]execute SQL success![02-12 14:14:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:14:18]execute SQL success![02-12 14:14:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:14:28]execute SQL success![02-12 14:14:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:14:38]execute SQL success![02-12 14:14:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:14:48]execute SQL success![02-12 14:14:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:14:58]execute SQL success![02-12 14:15:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:15:08]execute SQL success![02-12 14:15:11]Table [account], begin execute SQL [insert account (act_id, act_name, cha_ids) values (3, 'skulkills', '0')]
+[02-12 14:15:11]execute SQL success![02-12 14:15:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:15:18]execute SQL success![02-12 14:15:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:15:28]execute SQL success![02-12 14:15:36]Table [account], begin execute SQL [update account set password='670B14728AD9902AECBA32E22FA4F6BD' where act_id=3]
+[02-12 14:15:36]execute SQL success![02-12 14:15:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:15:38]execute SQL success![02-12 14:15:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:15:48]execute SQL success![02-12 14:15:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:15:58]execute SQL success![02-12 14:16:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:16:08]execute SQL success![02-12 14:16:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:16:18]execute SQL success![02-12 14:16:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:16:28]execute SQL success![02-12 14:16:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:16:38]execute SQL success![02-12 14:16:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:16:48]execute SQL success![02-12 14:16:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:16:58]execute SQL success![02-12 14:17:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:17:08]execute SQL success![02-12 14:17:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:17:18]execute SQL success![02-12 14:17:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:17:28]execute SQL success![02-12 14:17:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:17:38]execute SQL success![02-12 14:17:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:17:48]execute SQL success![02-12 14:17:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:17:58]execute SQL success![02-12 14:18:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:18:08]execute SQL success![02-12 14:18:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:18:18]execute SQL success![02-12 14:18:22]Table [character], begin execute SQL [insert character (cha_name, act_id, birth,map,look) values ('DelmonGates', 3, 'Argent City','garner', '112#2,2068;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,2555,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;0,0,0,0,0,0,0,0,0,0,0,0,0;4625')]
+[02-12 14:18:22]execute SQL success![02-12 14:18:22]Table [account], begin execute SQL [update account set cha_ids='6;' where act_id=3]
+[02-12 14:18:22]execute SQL success![02-12 14:18:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 0, 0)]
+[02-12 14:18:28]execute SQL success![02-12 14:18:35]Table [character], begin execute SQL [update character set mem_addr =18951104 where cha_id =6]
+[02-12 14:18:35]execute SQL success![02-12 14:18:35]Table [character], begin execute SQL [update character set estop = getdate() where cha_id =6]
+[02-12 14:18:35]execute SQL success![02-12 14:18:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:18:38]execute SQL success![02-12 14:18:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:18:48]execute SQL success![02-12 14:18:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:18:58]execute SQL success![02-12 14:19:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:19:08]execute SQL success![02-12 14:19:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:19:18]execute SQL success![02-12 14:19:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:19:28]execute SQL success![02-12 14:19:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:19:38]execute SQL success![02-12 14:19:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (1, 1, 0)]
+[02-12 14:19:48]execute SQL success![02-12 14:19:52]Table [character], begin execute SQL [update character set mem_addr =0 where cha_id =6]
+[02-12 14:19:52]execute SQL success![02-12 14:19:52]Table [account], begin execute SQL [update account set last_ip='127.0.0.1',disc_reason ='',last_leave =getdate() where act_id =3]
+[02-12 14:19:52]execute SQL success![02-12 14:19:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:19:58]execute SQL success![02-12 14:20:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:20:08]execute SQL success![02-12 14:20:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:20:18]execute SQL success![02-12 14:20:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:20:28]execute SQL success![02-12 14:20:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:20:38]execute SQL success![02-12 14:20:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:20:48]execute SQL success![02-12 14:20:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:20:58]execute SQL success![02-12 14:21:08]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:21:08]execute SQL success![02-12 14:21:18]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:21:18]execute SQL success![02-12 14:21:28]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:21:28]execute SQL success![02-12 14:21:38]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:21:38]execute SQL success![02-12 14:21:48]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:21:48]execute SQL success![02-12 14:21:58]Table [account], begin execute SQL [insert stat_log (login_num , play_num, wgplay_num) values (0, 0, 0)]
+[02-12 14:21:58]execute SQL success!

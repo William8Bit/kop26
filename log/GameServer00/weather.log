@@ -1,0 +1,10 @@
+[02-12 14:14:42]add weather area[9], occur time limit = 8, duration = 40, location = 1217 1400, 40 40
+[02-12 14:14:42]add weather area[11], occur time limit = 8, duration = 40, location = 1123 1480, 40 40
+[02-12 14:14:42]add weather area[9], occur time limit = 8, duration = 40, location = 595 570, 40 40
+[02-12 14:14:42]add weather area[11], occur time limit = 8, duration = 40, location = 580 700, 40 40
+[02-12 14:18:35][garner]predict[Weather: Current sea (2442,2876) nearby will occur Thunderstorm], time = 11044
+[02-12 14:18:35][garner]predict[Weather: Current sea (2294,3010) nearby will occur Tornado], time = 11044
+[02-12 14:21:24]add weather area[9], occur time limit = 8, duration = 40, location = 1217 1400, 40 40
+[02-12 14:21:24]add weather area[11], occur time limit = 8, duration = 40, location = 1123 1480, 40 40
+[02-12 14:21:24]add weather area[9], occur time limit = 8, duration = 40, location = 595 570, 40 40
+[02-12 14:21:24]add weather area[11], occur time limit = 8, duration = 40, location = 580 700, 40 40

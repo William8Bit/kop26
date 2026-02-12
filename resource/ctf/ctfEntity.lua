@@ -1,0 +1,6 @@
+
+function InitCTFEntity()
+
+end
+
+InitCTFEntity()

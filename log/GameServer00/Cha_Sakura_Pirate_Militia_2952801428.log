@@ -1,0 +1,64 @@
+[02-12 14:21:01]Add action(Move) ActionData[-1, 0]
+[02-12 14:21:01]request move	 currently time 11190328，remain time 330，passes time 11185296，passes time 5032。
+[02-12 14:21:01]$$$PacketID:	0
+[02-12 14:21:01]===Recieve(Move):	Tick 11190328
+[02-12 14:21:01]Point:	  2
+[02-12 14:21:01]	226428, 	112647
+[02-12 14:21:01]	226882, 	113173
+[02-12 14:21:01]
+[02-12 14:21:01]move stat	currently time 11190328，move distance 323，cost time 600，	accumulative distance 323，taccumulative cost time 600。
+[02-12 14:21:01]$$$PacketID:	0
+[02-12 14:21:01]###Send(Move):	Tick 11190328
+[02-12 14:21:01]Point:	  2
+[02-12 14:21:01]	226428, 	112647
+[02-12 14:21:01]	226639, 	112892
+[02-12 14:21:01]Elapse: 600
+[02-12 14:21:01]Distance: 323
+[02-12 14:21:01]
+[02-12 14:21:02]move stat	currently time 11190953，move distance 0，cost time 0，	accumulative distance 323，taccumulative cost time 600。
+[02-12 14:21:02]$$$PacketID:	0
+[02-12 14:21:02]###Send(Move):	Tick 11190953
+[02-12 14:21:02]Point:	  2
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]Elapse: 0
+[02-12 14:21:02]Distance: 0
+[02-12 14:21:02]@@@End Move	State:2
+[02-12 14:21:02]
+[02-12 14:21:02]cease execute OnMove[State:2]
+[02-12 14:21:02]Add action(Move) ActionData[-1, 0]
+[02-12 14:21:02]request move	 currently time 11191328，remain time 0，passes time 11190953，passes time 375。
+[02-12 14:21:02]$$$PacketID:	0
+[02-12 14:21:02]===Recieve(Move):	Tick 11191328
+[02-12 14:21:02]Point:	  2
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]	226898, 	112904
+[02-12 14:21:02]
+[02-12 14:21:02]move stat	currently time 11191328，move distance 0，cost time 0，	accumulative distance 0，taccumulative cost time 0。
+[02-12 14:21:02]$$$PacketID:	0
+[02-12 14:21:02]###Send(Move):	Tick 11191328
+[02-12 14:21:02]Point:	  2
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]Elapse: 0
+[02-12 14:21:02]Distance: 0
+[02-12 14:21:02]@@@End Move	State:2
+[02-12 14:21:02]
+[02-12 14:21:02]Add action(Move) ActionData[-1, 0]
+[02-12 14:21:02]request move	 currently time 11191328，remain time 0，passes time 11191328，passes time 0。
+[02-12 14:21:02]$$$PacketID:	0
+[02-12 14:21:02]===Recieve(Move):	Tick 11191328
+[02-12 14:21:02]Point:	  2
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]	226428, 	112647
+[02-12 14:21:02]
+[02-12 14:21:02]move stat	currently time 11191328，move distance 323，cost time 598，	accumulative distance 323，taccumulative cost time 598。
+[02-12 14:21:02]$$$PacketID:	0
+[02-12 14:21:02]###Send(Move):	Tick 11191328
+[02-12 14:21:02]Point:	  2
+[02-12 14:21:02]	226639, 	112892
+[02-12 14:21:02]	226428, 	112647
+[02-12 14:21:02]Elapse: 598
+[02-12 14:21:02]Distance: 323
+[02-12 14:21:02]@@@End Move	State:1
+[02-12 14:21:02]

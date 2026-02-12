@@ -1,0 +1,2 @@
+1	Red Team Commander	1	417	1	4100,25300	4100,25300	35	Capture the Flag Red Team	8	0	CTF_Red	0
+2	Green Team Commander	1	417	1	25400,4400	25400,4400	215	Capture the Flag Green Team	8	0	CTF_Green	0
