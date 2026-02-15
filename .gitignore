@@ -32,6 +32,9 @@ Thumbs.db
 *.user
 *.userosscache
 *.sln.docstates
+
 # Generated resource binaries
 resource/**/*.bin
 resource/*.bin
+
+Historia_CORE.md
