@@ -35,3 +35,5 @@ Thumbs.db
 # Generated resource binaries
 resource/**/*.bin
 resource/*.bin
+
+Historia_CORE.md
