@@ -140,11 +140,48 @@ local function clear_player_active(role, kill_nemesis)
 end
 
 local function pick_template_id()
-  local list = Nemesis.cfg.monster_templates or Nemesis.cfg.character_templates or { 668 }
+  local list = Nemesis.cfg.monster_templates or Nemesis.cfg.character_templates or { Nemesis.cfg.fallback_monster_template or 883 }
   if tcount(list) <= 0 then
-    return 668
+    return Nemesis.cfg.fallback_monster_template or 883
   end
   return list[math.random(1, tcount(list))]
+end
+
+local function get_role_level(role)
+  local lv = 1
+  if GetChaAttr ~= nil and ATTR_LV ~= nil then
+    local ok, val = pcall(GetChaAttr, role, ATTR_LV)
+    if ok and val ~= nil then
+      lv = val
+    end
+  elseif GetChaAttrI ~= nil and ATTR_LV ~= nil then
+    local ok, val = pcall(GetChaAttrI, role, ATTR_LV)
+    if ok and val ~= nil then
+      lv = val
+    end
+  end
+  if lv < 1 then
+    lv = 1
+  end
+  return lv
+end
+
+local function pick_template_for_player(role)
+  local lv = get_role_level(role)
+  local ranges = Nemesis.cfg.monster_by_level
+  if ranges ~= nil then
+    for i = 1, tcount(ranges) do
+      local r = ranges[i]
+      if r ~= nil and r.mob ~= nil then
+        local min_lv = r.min or 1
+        local max_lv = r.max or 255
+        if lv >= min_lv and lv <= max_lv then
+          return r.mob
+        end
+      end
+    end
+  end
+  return pick_template_id()
 end
 
 local function get_spawn_pos_near(role)
@@ -211,7 +248,7 @@ local function spawn_near_player(role)
     return false
   end
 
-  local template_id = pick_template_id()
+  local template_id = pick_template_for_player(role)
   local nx, ny = get_spawn_pos_near(role)
   local nem = create_nemesis_mob(role, template_id, nx, ny)
   Nemesis.state.last_attempt_by_id[pid] = now + Nemesis.cfg.retry_spawn_interval_sec

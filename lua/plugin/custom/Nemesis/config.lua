@@ -4,10 +4,25 @@ return {
   -- Only this map is supported for now.
   map_name = "garner",
 
-  -- Monster templates used to spawn a real mob Nemesis.
-  -- Use monster IDs (not character template IDs like 3/4) to avoid NPC/follower behavior.
-  -- Pick IDs with the visual you want (weapon/equipment look comes from monster template).
-  monster_templates = { 668, 669 },
+  -- Nemesis by player level (inclusive ranges).
+  -- You can tune these ranges any time without changing code.
+  -- 1     Long Haired Guy
+  -- 868   Lance Newbie Phantom
+  -- 869   Lance Hunter Phantom
+  -- 870   Lance Crusader Phantom
+  -- 871   Lance Voyager Phantom
+  -- 883   Black Dragon Lance
+  monster_by_level = {
+    { min = 1,  max = 5,   mob = 1   },
+    { min = 6,  max = 10,  mob = 868 },
+    { min = 11, max = 40,  mob = 869 },
+    { min = 41, max = 55,  mob = 870 },
+    { min = 56, max = 75,  mob = 871 },
+    { min = 76, max = 255, mob = 883 },
+  },
+
+  -- Fallback if no range matches.
+  fallback_monster_template = 883,
 
   -- Respawn delay used by CreateCha/CreateChaEx. Keep very high to avoid natural respawn.
   monster_respawn_sec = 99999999,
@@ -19,8 +34,8 @@ return {
   retry_spawn_interval_sec = 10,
 
   -- Spawn distance around player (game world units).
-  spawn_distance_min = 250,
-  spawn_distance_max = 650,
+  spawn_distance_min = 1250,
+  spawn_distance_max = 1650,
 
   -- If Nemesis is farther than this, it is moved near the owner.
   leash_distance = 2200,

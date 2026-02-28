@@ -25,7 +25,8 @@ Edit `config.lua`:
 - `leash_distance`
 - `engage_player_distance`
 - `farm_scan_distance`
-- `monster_templates`
+- `monster_by_level`
+- `fallback_monster_template`
 - `monster_respawn_sec`
 - `reward_gold_on_player_kill`
 - `reward_exp_on_player_kill`
@@ -42,4 +43,4 @@ Loaded by:
 - This is a pure Lua test module.
 - Cooldown is memory-based (resets on GameServer restart).
 - Visual "equipment" depends on the chosen monster template IDs.
-- For Lance/Carsise-like visuals, set monster IDs in `monster_templates` that match your client DB.
+- For Lance/Carsise-like visuals, set monster IDs in `monster_by_level` that match your client DB.
